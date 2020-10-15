@@ -1,12 +1,24 @@
 import React from "react";
+import { Route, Switch } from 'react-router-dom'
+import { HomePage, CartPage } from '../pages';
+
 import './app.css';
-import { withBookstoreService } from '../hoc';
 
 
-const App = ({ bookstoreService }) => {
-  console.log(bookstoreService.getBooks());
-  return <div>App</div>
+const App = () => {
+  return (
+      <Switch>
+        <Route
+          path="/"
+          component={HomePage}
+          exact />
+
+        <Route
+            path="/cart"
+            component={CartPage}
+             />
+      </Switch>
+  );
 };
 
-// eslint-disable-next-line no-undef
-export default withBookstoreService()(App);
+export default App;
